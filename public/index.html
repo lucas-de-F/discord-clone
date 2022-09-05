@@ -1,25 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head class="bg-slate-800">
+<html lang="en" class="bg-transparent">
+  <head class="bg-transparent">
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
+    <meta />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <h3 id="app-title" class="text-center absolute left-[40vw]"></h3>
-    <div class="bg-slate-900 w-full flex flex-row justify-end items-center">
-
-      <div class="justify-self-end">
-          <button id="minimize" class="bg-slate-200">minimize</button>
-          <button id="maximize" class="bg-green-400">maximize</button>
-          <button id="unmaximize" class="bg-green-400 hidden">unmaximize</button>
-          <button id="close" class="bg-red-400">close</button>
-        </div>
+    <div
+    class=" -webkit-app-region: drag bg-slate-900 w-full h-10 flex  justify-end items-center rounded-t-xl titlebar">
+    <h3 id="app-title" class="absolute left-[40vw] text-slate-100"></h3>
+    <div class="flex items-center">
+      <button id="minimize" class="bg-slate-200 hover:bg-white">minimize</button>
+      <button id="maximize" class="bg-green-400 hover:bg-white">maximize</button>
+      <button id="unmaximize" class="bg-green-400 hover:bg-white hidden">unmaximize</button>
+      <button id="close" class="bg-red-400 hover:bg-white">close</button>
+    </div>
     </div>
   </head>
   <body style="overflow-x: hidden; overflow-y: hidden">
