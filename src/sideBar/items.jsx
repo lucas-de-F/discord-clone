@@ -30,8 +30,13 @@ const WhiteBar = styled.img`
     && `
     height: 2em
   `}
-  ${({ hidden }) => hidden
+
+  ${({ appear }) => appear
   && `
+   opacity: 0
+`}
+  ${({ hidden }) => hidden
+    && `
     display: none
 `}
 `;
@@ -43,7 +48,7 @@ const GroupName = styled.p`
 `;
 
 function Items({
-  id, thumb, name, index, active, setActive, draggable,
+  id, thumb, name, index, active, setActive, dragStart,
 }) {
   const [hover, setHover] = useState('');
 
@@ -62,7 +67,11 @@ function Items({
           {...provided.dragHandleProps}
         >
           <div className="flex flex-col items-center justify-center">
-            <WhiteBar hover={name === hover && active !== name} active={active === name} />
+            <WhiteBar
+              hover={name === hover && active !== name}
+              active={active === name}
+              appear={dragStart}
+            />
             <GroupName active={name === hover}>{name}</GroupName>
             <Img src={thumb} alt={`${name} Thumb`} active={active === name} />
           </div>
