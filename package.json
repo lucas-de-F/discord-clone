@@ -21,6 +21,7 @@
     "react-scripts": "5.0.1",
     "styled-components": "^5.3.5",
     "tailwindcss": "^3.1.8",
+    "twin.macro": "^2.8.2",
     "wait-on": "^6.0.1",
     "web-vitals": "^2.1.4"
   },
