@@ -8,18 +8,11 @@
     <meta />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <div
-    class=" -webkit-app-region: drag bg-slate-900 w-full h-10 flex  justify-end items-center rounded-t-xl titlebar">
-    <h3 id="app-title" class="absolute left-[40vw] text-slate-100"></h3>
-    <div class="flex items-center">
-      <button id="minimize" class="bg-slate-200 hover:bg-white">minimize</button>
-      <button id="maximize" class="bg-green-400 hover:bg-white">maximize</button>
-      <button id="unmaximize" class="bg-green-400 hover:bg-white hidden">unmaximize</button>
-      <button id="close" class="bg-red-400 hover:bg-white">close</button>
-    </div>
+    <div id="header">
+
     </div>
   </head>
-  <body style="overflow-x: hidden; overflow-y: hidden">
+  <body style="overflow: hidden;">
     <div id="root"></div>
   </body>
   <script src="./renderer.js"></script>

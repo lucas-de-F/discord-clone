@@ -30,23 +30,23 @@ const WhiteBar = styled.img`
     && `
     height: 2em
   `}
+  ${({ hidden }) => hidden
+  && `
+    display: none
+`}
 `;
 
 const GroupName = styled.p`
   ${tw`opacity-0 absolute`}
   ${({ active }) => active
-    && tw`flex flex-wrap rounded-3xl absolute bg-gray-900 text-white p-2 max-w-[200px] left-[75px] opacity-100 transition-all`
-}
+    && tw`flex flex-wrap rounded-3xl absolute bg-gray-900 text-white p-2 max-w-[200px] left-[75px] opacity-100 transition-all`}
 `;
 
 function Items({
-  id, thumb, name, index, active, setActive,
+  id, thumb, name, index, active, setActive, draggable,
 }) {
   const [hover, setHover] = useState('');
 
-  const outHandler = () => {
-    setHover('');
-  };
   return (
     <Draggable key={id} draggableId={id} index={index}>
       {(provided) => (
@@ -56,7 +56,7 @@ function Items({
           key={id}
           onClick={() => setActive(name)}
           onMouseEnter={() => setHover(name)}
-          onMouseLeave={outHandler}
+          onMouseLeave={() => setHover('')}
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
@@ -69,6 +69,31 @@ function Items({
         </li>
       )}
     </Draggable>
+  );
+}
+
+export function Icon({
+  id, thumb, name, index, active, setActive,
+}) {
+  const [hover, setHover] = useState('');
+
+  const outHandler = () => {
+    setHover('');
+  };
+  return (
+    <li
+      className="h-14"
+      key={id}
+      onClick={() => setActive(name)}
+      onMouseEnter={() => setHover(name)}
+      onMouseLeave={outHandler}
+    >
+      <div className="flex flex-col items-center justify-center">
+        <WhiteBar hover={name === hover && active !== name} active={active === name} />
+        <GroupName active={name === hover}>{name}</GroupName>
+        <Img src={thumb} alt={`${name} Thumb`} active={active === name} />
+      </div>
+    </li>
   );
 }
 

@@ -6,7 +6,7 @@ import '../index.css';
 import '../App.css';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import finalSpaceCharacters, { discordIcon } from './data';
-import Items from './items';
+import Items, { Icon } from './items';
 
 function SideBar() {
   const [characters, updateCharacters] = useState(finalSpaceCharacters);
@@ -17,7 +17,6 @@ function SideBar() {
     const items = Array.from(characters);
     const [reorderedItem] = items.splice(result.source.index, 1);
     items.splice(result.destination.index, 0, reorderedItem);
-
     updateCharacters(items);
   };
 
@@ -29,12 +28,26 @@ function SideBar() {
             {(provided) => (
               <div {...provided.droppableProps} ref={provided.innerRef}>
                 {discordIcon.map(({ id, name, thumb }, index) => (
-                  // eslint-disable-next-line max-len
-                  <Items setActive={setActive} key={index} name={name} id={id} thumb={thumb} index={index} active={active} />
+                  <Icon
+                    setActive={setActive}
+                    key={index}
+                    name={name}
+                    id={id}
+                    thumb={thumb}
+                    index={index}
+                    active={active}
+                  />
                 ))}
                 {characters.map(({ id, name, thumb }, index) => (
-                  // eslint-disable-next-line max-len
-                  <Items setActive={setActive} key={index} name={name} id={id} thumb={thumb} index={index} active={active} />
+                  <Items
+                    setActive={setActive}
+                    key={index}
+                    name={name}
+                    id={id}
+                    thumb={thumb}
+                    index={index}
+                    active={active}
+                  />
                 ))}
               </div>
             )}
