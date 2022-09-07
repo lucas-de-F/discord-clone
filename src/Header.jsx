@@ -30,6 +30,7 @@ function Header() {
         >
           <MdMinimize />
         </button>
+
         <button
           type="button"
           onClick={() => {
