@@ -55,7 +55,6 @@ function Items({
   return (
     <Draggable key={id} draggableId={id} index={index}>
       {(provided) => (
-        // eslint-disable-next-line max-len
         <li
           className="h-14"
           key={id}

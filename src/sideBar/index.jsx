@@ -47,7 +47,7 @@ function SideBar() {
                 {characters.map(({ id, name, thumb }, index) => (
                   <Items
                     setActive={setActive}
-                    key={index}
+                    key={id}
                     name={name}
                     id={id}
                     thumb={thumb}
