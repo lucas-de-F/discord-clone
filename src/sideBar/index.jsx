@@ -29,7 +29,7 @@ function SideBar() {
   return (
     <div className="w-[70px] min-w-[70px] bg-gray-800 pb-10 overflow-y-auto example">
       <ul className="flex flex-col items-center mt-2">
-        <DragDropContext onDragEnd={handleDrop} onDragStart={handleStart}>
+        <DragDropContext onDragEnd={handleDrop} onBeforeDragStart={handleStart}>
           <Droppable droppableId="characters">
             {(provided) => (
               <div {...provided.droppableProps} ref={provided.innerRef}>
@@ -44,6 +44,7 @@ function SideBar() {
                     active={active}
                   />
                 ))}
+                <div className="bg-gray-700 p-[1px] mb-2 rounded-xl" />
                 {characters.map(({ id, name, thumb }, index) => (
                   <Items
                     setActive={setActive}
