@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 const HeaderStyle = styled.div`
   ${tw`bg-gray-900 w-full h-10 flex  justify-end items-center rounded-t-xl`}
-
   h3 {
     ${tw`absolute left-[45vw] text-gray-100`}
   }

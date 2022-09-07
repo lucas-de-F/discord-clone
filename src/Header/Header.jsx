@@ -10,7 +10,7 @@ import HeaderStyle from './HeaderStyle';
 function Header() {
   const [hidden, setHidden] = useState(true);
   return (
-    <HeaderStyle>
+    <HeaderStyle className="titlebar">
       <h3>Discord</h3>
       <div>
         <button type="button" onClick={minimizeButton}>
