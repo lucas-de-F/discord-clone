@@ -16,6 +16,19 @@ const finalSpaceCharacters = [
   },
 ];
 
+export const finalSpaceGroup = [
+  {
+    id: 'Gary',
+    name: 'Gary',
+    thumb: Gary,
+  },
+  {
+    id: 'Gato',
+    name: 'Gato',
+    thumb: Gato,
+  },
+];
+
 export const discordIcon = [
   {
     id: 'Discord',

@@ -70,6 +70,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-preset-env": "^7.8.0",
-    "prettier": "^2.7.1"
+    "prettier": "^2.7.1",
+    "tailwind-scrollbar": "^2.0.1"
   }
 }

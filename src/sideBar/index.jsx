@@ -5,11 +5,11 @@ import React, { useState } from 'react';
 import '../index.css';
 import '../App.css';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
-import finalSpaceCharacters, { discordIcon } from './data';
+import { discordIcon, finalSpaceGroup } from './data';
 import Items, { Icon } from './items';
 
 function SideBar() {
-  const [characters, updateCharacters] = useState(finalSpaceCharacters);
+  const [characters, updateCharacters] = useState(finalSpaceGroup);
   const [active, setActive] = useState('Discord');
   const [dragStart, setDragStart] = useState(false);
 
