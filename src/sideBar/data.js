@@ -1,4 +1,5 @@
 import Gary from '../images/gary.png';
+import Cookie from '../images/cookie.jpg';
 import Gato from '../images/gato.png';
 import Discord from '../images/discord.png';
 import Add from '../images/add.png';
@@ -18,15 +19,15 @@ const finalSpaceCharacters = [
 
 export const finalSpaceGroup = [
   {
-    id: 'Gary',
-    name: 'Gary',
-    thumb: Gary,
+    id: 'cookie',
+    name: 'Have a Cookie',
+    thumb: Cookie,
   },
-  {
-    id: 'Gato',
-    name: 'Gato',
-    thumb: Gato,
-  },
+  // {
+  //   id: 'Gato',
+  //   name: 'Gato',
+  //   thumb: Gato,
+  // },
 ];
 
 export const discordIcon = [
