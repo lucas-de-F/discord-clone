@@ -12,7 +12,6 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
-    "autoprefixer": "^10.4.8",
     "babel-plugin-macros": "^3.1.0",
     "concurrently": "^7.3.0",
     "craco": "^0.0.3",
@@ -20,7 +19,6 @@
     "custom-electron-titlebar": "^4.1.0",
     "electron": "^20.1.0",
     "express": "^4.18.1",
-    "postcss": "^8.4.16",
     "postcss-cli": "^10.0.0",
     "react": "^18.2.0",
     "react-beautiful-dnd": "^13.1.1",
@@ -29,8 +27,7 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "styled-components": "^5.3.5",
-    "tailwindcss": "^3.1.8",
-    "twin.macro": "^3.0.0-rc.3",
+    "twin.macro": "^2.8.2",
     "wait-on": "^6.0.1",
     "web-vitals": "^2.1.4"
   },
@@ -60,6 +57,7 @@
   },
   "devDependencies": {
     "@types/autoprefixer": "^10.2.0",
+    "autoprefixer": "^10.4.8",
     "eslint": "^8.23.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.5.0",
@@ -68,9 +66,11 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.6",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "postcss": "^8.4.16",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-preset-env": "^7.8.0",
     "prettier": "^2.7.1",
-    "tailwind-scrollbar": "^2.0.1"
+    "tailwind-scrollbar": "^2.0.1",
+    "tailwindcss": "^3.1.8"
   }
 }

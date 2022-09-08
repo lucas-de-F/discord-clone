@@ -5,16 +5,18 @@ import { MdClose } from 'react-icons/md';
 import finalSpaceCharacters from '../sideBar/data';
 
 const ContactsStyle = styledComponents.div`
-    ${tw`w-[250px] min-w-[250px] bg-gray-700 pb-12`}
+    .main {
+      ${tw`w-[250px] min-w-[250px] bg-gray-700 pb-12`}
+    }
 
     li {
-        ${tw` py-1 flex flex-row items-center justify-between text-gray-400 rounded-md mx-2 my-0.5`}
+        ${tw` py-1 flex flex-row items-center justify-between cursor-pointer text-gray-400 rounded-md mx-2 my-0.5`}
     }
 
     li:hover {
         ${tw`text-gray-300 bg-gray-600`}
     }
-    div {
+    .container {
         ${tw`mx-2 flex flex-row items-center`}
     }
     p {
@@ -35,27 +37,30 @@ export default function Contacts() {
   };
   return (
     <ContactsStyle>
-      <ol>
-        {finalSpaceCharacters.map((c) => (
-          <li
-            onMouseEnter={() => setHover({ name: c.name, show: true })}
-            onMouseLeave={() => setHover({ name: '', show: false })}
-          >
-            <div>
-              <img src={c.thumb} alt="" />
-              <p>{c.name}</p>
-            </div>
-            {hover.show && hover.name === c.name && (
-              <MdClose
-                onClick={() => remove(c.id)}
-                hidden={hover}
-                size="1.3em"
-                className="mx-2 hover:text-gray-100 hover:cursor-pointer"
-              />
-            )}
-          </li>
-        ))}
-      </ol>
+      <div className="main">
+        <ol>
+          {finalSpaceCharacters.map((c) => (
+            <li
+              onMouseEnter={() => setHover({ name: c.name, show: true })}
+              onMouseLeave={() => setHover({ name: '', show: false })}
+              key={c.id}
+            >
+              <div className="container">
+                <img src={c.thumb} alt="" />
+                <p>{c.name}</p>
+              </div>
+              {hover.show && hover.name === c.name && (
+                <MdClose
+                  onClick={() => remove(c.id)}
+                  hidden={hover}
+                  size="1.3em"
+                  className="mx-2 hover:text-gray-100 hover:cursor-pointer"
+                />
+              )}
+            </li>
+          ))}
+        </ol>
+      </div>
     </ContactsStyle>
   );
 }

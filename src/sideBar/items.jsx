@@ -7,12 +7,12 @@
 /* eslint-disable react/react-in-jsx-scope */
 import { useState } from 'react';
 import { Draggable } from 'react-beautiful-dnd';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 
 const Img = styled.img`
   ${tw`w-12 h-12 flex bg-gray-600 items-center hover:cursor-pointer justify-center rounded-full hover:bg-indigo-600 hover:rounded-xl hover:transition-all ease-in-out`}
-
   ${({ active }) => active
     && `
     background: rgba(79, 70, 229, var(--tw-bg-opacity));
@@ -32,7 +32,7 @@ const WhiteBar = styled.img`
   `}
 
   ${({ appear }) => appear
-  && `
+    && `
    opacity: 0
 `}
   ${({ hidden }) => hidden
@@ -52,13 +52,17 @@ function Items({
 }) {
   const [hover, setHover] = useState('');
 
+  const navigate = useNavigate();
   return (
     <Draggable key={id} draggableId={id} index={index}>
       {(provided) => (
         <li
           className="h-14"
           key={id}
-          onClick={() => setActive(name)}
+          onClick={() => {
+            setActive(name);
+            navigate(`/groups/${id}`);
+          }}
           onMouseEnter={() => setHover(name)}
           onMouseLeave={() => setHover('')}
           ref={provided.innerRef}
@@ -88,11 +92,16 @@ export function Icon({
   const outHandler = () => {
     setHover('');
   };
+  const navigate = useNavigate();
+
   return (
     <li
       className="h-14"
       key={id}
-      onClick={() => setActive(name)}
+      onClick={() => {
+        setActive(name);
+        return navigate('/contacts');
+      }}
       onMouseEnter={() => setHover(name)}
       onMouseLeave={outHandler}
     >
