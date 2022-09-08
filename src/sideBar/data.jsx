@@ -26,14 +26,14 @@ const finalSpaceCharacters = [
 
 export const finalSpaceGroup = [
   {
-    id: 'cookie',
+    id: 'HaveaCookie',
     name: 'Have a Cookie',
     thumb: Cookie,
   },
   // {
-  //   id: 'Gato',
-  //   name: 'Gato',
-  //   thumb: Gato,
+  //   id: 'Group bao',
+  //   name: 'Groupbao',
+  //   thumb: Cookie,
   // },
 ];
 

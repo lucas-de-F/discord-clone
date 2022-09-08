@@ -48,22 +48,21 @@ const GroupName = styled.p`
 `;
 
 function Items({
-  id, thumb, name, index, active, setActive, dragStart,
+  id, thumb, name, index, active, setActive, dragStart, isDragDisabled,
 }) {
   const [hover, setHover] = useState('');
-
   const navigate = useNavigate();
   return (
-    <Draggable key={id} draggableId={id} index={index}>
+    <Draggable key={id} draggableId={id} index={index} isDragDisabled={isDragDisabled}>
       {(provided) => (
         <li
           className="h-14"
           key={id}
           onClick={() => {
-            setActive(name);
+            setActive(id);
             navigate(`/groups/${id}`);
           }}
-          onMouseEnter={() => setHover(name)}
+          onMouseEnter={() => setHover(id)}
           onMouseLeave={() => setHover('')}
           ref={provided.innerRef}
           {...provided.draggableProps}
@@ -71,12 +70,12 @@ function Items({
         >
           <div className="flex flex-col items-center justify-center">
             <WhiteBar
-              hover={name === hover && active !== name}
-              active={active === name}
+              hover={id === hover && active !== id}
+              active={active === id}
               appear={dragStart}
             />
-            <GroupName active={name === hover}>{name}</GroupName>
-            <Img src={thumb} alt={`${name} Thumb`} active={active === name} />
+            <GroupName active={id === hover}>{name}</GroupName>
+            <Img src={thumb} alt={`${name} Thumb`} active={active === id} />
           </div>
         </li>
       )}

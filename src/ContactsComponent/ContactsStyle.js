@@ -3,7 +3,7 @@ import tw from 'twin.macro';
 
 export const LiComponent = styledComponents.div`
     li {
-        ${tw` py-1 flex flex-row items-center justify-between cursor-pointer text-gray-400 rounded-md mx-2 my-0.5`}
+        ${tw` py-1 flex flex-row items-center justify-between cursor-pointer text-gray-400 rounded-md mx-2 my-0.5 transition-all duration-200 `}
         ${({ selected }) => selected
           && tw`
           text-gray-200 bg-gray-500

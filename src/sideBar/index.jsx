@@ -1,18 +1,27 @@
 /* eslint-disable no-shadow */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/no-array-index-key */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../index.css';
 import '../App.css';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
+import { useLocation } from 'react-router-dom';
 import { discordIcon, finalSpaceGroup } from './data';
 import Items, { Icon } from './items';
 
 function SideBar() {
   const [characters, updateCharacters] = useState(finalSpaceGroup);
-  const [active, setActive] = useState('Discord');
+  const [active, setActive] = useState('');
   const [dragStart, setDragStart] = useState(false);
-
+  const location = useLocation();
+  useEffect(() => {
+    if (location.pathname.includes('groups')) {
+      const group = location.pathname.split('/')[2];
+      setActive(group);
+    } else {
+      setActive('Discord');
+    }
+  }, []);
   const handleDrop = (result) => {
     if (!result.destination) return;
 
@@ -47,6 +56,7 @@ function SideBar() {
                 <div className="bg-gray-700 p-[1px] mb-2 rounded-xl" />
                 {characters.map(({ id, name, thumb }, index) => (
                   <Items
+                    isDragDisabled={characters.length === 1}
                     setActive={setActive}
                     key={id}
                     name={name}
