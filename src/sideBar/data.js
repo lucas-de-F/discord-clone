@@ -2,7 +2,8 @@ import Gary from '../images/gary.png';
 import Cookie from '../images/cookie.jpg';
 import Gato from '../images/gato.png';
 import Discord from '../images/discord.png';
-import Add from '../images/add.png';
+import Amigos from '../images/amigos.png';
+import Nitro from '../images/nitro.png';
 
 const finalSpaceCharacters = [
   {
@@ -38,11 +39,16 @@ export const discordIcon = [
   },
 ];
 
-export const AddServerIcon = [
+export const ContactsOptions = [
   {
-    id: 'Add',
-    name: 'Add',
-    thumb: Add,
+    id: 'Amigos',
+    name: 'Amigos',
+    thumb: Amigos,
+  },
+  {
+    id: 'Nitro',
+    name: 'Nitro',
+    thumb: Nitro,
   },
 ];
 

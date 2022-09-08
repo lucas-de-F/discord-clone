@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styledComponents from 'styled-components';
 import tw from 'twin.macro';
 import { MdClose } from 'react-icons/md';
-import finalSpaceCharacters from '../sideBar/data';
+import finalSpaceCharacters, { ContactsOptions } from '../sideBar/data';
 
 const ContactsStyle = styledComponents.div`
     .main {
@@ -23,7 +23,10 @@ const ContactsStyle = styledComponents.div`
         ${tw`mx-2`}
     }
 
-    img {
+    .img-icon-fix-class {
+      ${tw`w-9 h-9 flex bg-transparent items-center justify-center rounded-full`}
+  }
+    .img-class {
         ${tw`w-9 h-9 flex bg-gray-600 items-center justify-center rounded-full`}
     }
 `;
@@ -39,6 +42,21 @@ export default function Contacts() {
     <ContactsStyle>
       <div className="main">
         <ol>
+          {ContactsOptions.map((c) => (
+            <li
+              onMouseEnter={() => setHover({ name: c.name, show: true })}
+              onMouseLeave={() => setHover({ name: '', show: false })}
+              key={c.id}
+            >
+              <div className="container">
+                <img src={c.thumb} alt="" className="img-icon-fix-class" />
+                <p>{c.name}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+        <p className="px-4 my-2  text-gray-400 hover:text-gray-300">Mensagens diretas</p>
+        <ol>
           {finalSpaceCharacters.map((c) => (
             <li
               onMouseEnter={() => setHover({ name: c.name, show: true })}
@@ -46,7 +64,7 @@ export default function Contacts() {
               key={c.id}
             >
               <div className="container">
-                <img src={c.thumb} alt="" />
+                <img src={c.thumb} alt="" className="img-class" />
                 <p>{c.name}</p>
               </div>
               {hover.show && hover.name === c.name && (
