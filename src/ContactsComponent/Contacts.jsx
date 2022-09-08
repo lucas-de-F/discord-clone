@@ -1,38 +1,13 @@
 import React, { useState } from 'react';
-import styledComponents from 'styled-components';
-import tw from 'twin.macro';
-import { MdClose } from 'react-icons/md';
+
 import finalSpaceCharacters, { ContactsOptions } from '../sideBar/data';
-
-const ContactsStyle = styledComponents.div`
-    .main {
-      ${tw`w-[250px] min-w-[250px] bg-gray-700 pb-12`}
-    }
-
-    li {
-        ${tw` py-1 flex flex-row items-center justify-between cursor-pointer text-gray-400 rounded-md mx-2 my-0.5`}
-    }
-
-    li:hover {
-        ${tw`text-gray-300 bg-gray-600`}
-    }
-    .container {
-        ${tw`mx-2 flex flex-row items-center`}
-    }
-    p {
-        ${tw`mx-2`}
-    }
-
-    .img-icon-fix-class {
-      ${tw`w-9 h-9 flex bg-transparent items-center justify-center rounded-full`}
-  }
-    .img-class {
-        ${tw`w-9 h-9 flex bg-gray-600 items-center justify-center rounded-full`}
-    }
-`;
+import ContactOptions from './ContactOptions';
+import ContactList from './ContactList';
+import ContactsStyle from './ContactsStyle';
 
 export default function Contacts() {
   const [hover, setHover] = useState({ name: '', show: false });
+  const [selected, setSelected] = useState({ name: '' });
   const remove = (id) => {
     setHover({ name: '', show: false });
     const index = finalSpaceCharacters.findIndex((c) => c.id === id);
@@ -41,43 +16,21 @@ export default function Contacts() {
   return (
     <ContactsStyle>
       <div className="main">
-        <ol>
-          {ContactsOptions.map((c) => (
-            <li
-              onMouseEnter={() => setHover({ name: c.name, show: true })}
-              onMouseLeave={() => setHover({ name: '', show: false })}
-              key={c.id}
-            >
-              <div className="container">
-                <img src={c.thumb} alt="" className="img-icon-fix-class" />
-                <p>{c.name}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
-        <p className="px-4 my-2  text-gray-400 hover:text-gray-300">Mensagens diretas</p>
-        <ol>
-          {finalSpaceCharacters.map((c) => (
-            <li
-              onMouseEnter={() => setHover({ name: c.name, show: true })}
-              onMouseLeave={() => setHover({ name: '', show: false })}
-              key={c.id}
-            >
-              <div className="container">
-                <img src={c.thumb} alt="" className="img-class" />
-                <p>{c.name}</p>
-              </div>
-              {hover.show && hover.name === c.name && (
-                <MdClose
-                  onClick={() => remove(c.id)}
-                  hidden={hover}
-                  size="1.3em"
-                  className="mx-2 hover:text-gray-100 hover:cursor-pointer"
-                />
-              )}
-            </li>
-          ))}
-        </ol>
+        <ContactOptions
+          contacts={ContactsOptions}
+          setHover={setHover}
+          selected={selected}
+          setSelected={setSelected}
+        />
+        <p className="text-label">Mensagens diretas</p>
+        <ContactList
+          contacts={finalSpaceCharacters}
+          setHover={setHover}
+          hover={hover}
+          remove={remove}
+          selected={selected}
+          setSelected={setSelected}
+        />
       </div>
     </ContactsStyle>
   );
